@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57C39738-BED8-475C-A3DF-C82B9057311F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SolidExample_App</RootNamespace>
+    <AssemblyName>SolidExample_App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ResponseBase.cs" />
+    <Compile Include="Base\TaskAssignBase.cs" />
+    <Compile Include="Base\TaskStateBase.cs" />
+    <Compile Include="Commands\TaskAssignCommand.cs" />
+    <Compile Include="Commands\TaskCreateCommand.cs" />
+    <Compile Include="Commands\TaskDoneCommand.cs" />
+    <Compile Include="Commands\TaskInProgressCommand.cs" />
+    <Compile Include="Commands\TaskTestCommand.cs" />
+    <Compile Include="Commands\TaskTodoCommand.cs" />
+    <Compile Include="Contexts\ProjectContext.cs" />
+    <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Enums\TaskState.cs" />
+    <Compile Include="Events\TaskTodoEvent.cs" />
+    <Compile Include="Factories\DbContextFactory.cs" />
+    <Compile Include="Factories\GetTaskSpecificTaskStateQueryHandlerFactory.cs" />
+    <Compile Include="Factories\GetTaskSpecificUserAndTaskStateQueryHandlerFactory.cs" />
+    <Compile Include="Factories\GetTaskSpecificUserQueryHandlerFactory.cs" />
+    <Compile Include="Factories\NetMailServiceFactory.cs" />
+    <Compile Include="Factories\ResponseBaseFactory.cs" />
+    <Compile Include="Factories\TaskAssignHandlerFactory.cs" />
+    <Compile Include="Factories\TaskCreateHandlerFactory.cs" />
+    <Compile Include="Factories\TaskDoneHandlerFactory.cs" />
+    <Compile Include="Factories\TaskInprogressHandlerFactory.cs" />
+    <Compile Include="Factories\TaskRepositoryFactory.cs" />
+    <Compile Include="Factories\TaskTestHandlerFactory.cs" />
+    <Compile Include="Factories\TaskTodoEventSubscriberFactory.cs" />
+    <Compile Include="Factories\TaskTodoHandlerFactory.cs" />
+    <Compile Include="Factories\UserRepositoryFactory.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\GetTaskSpecificTaskStateQueryHandler.cs" />
+    <Compile Include="Handlers\GetTaskSpecificUserAndTaskStateQueryHandler.cs" />
+    <Compile Include="Handlers\GetTaskSpecificUserQueryHandler.cs" />
+    <Compile Include="Handlers\TaskAssignHandler.cs" />
+    <Compile Include="Handlers\TaskCreateHandler.cs" />
+    <Compile Include="Handlers\TaskDoneHandler.cs" />
+    <Compile Include="Handlers\TaskInProgressHandler.cs" />
+    <Compile Include="Handlers\TaskTestHandler.cs" />
+    <Compile Include="Handlers\TaskTodoHandler.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
+    <Compile Include="Interfaces\ICommandHandler.cs" />
+    <Compile Include="Interfaces\IEvent.cs" />
+    <Compile Include="Interfaces\IMailService.cs" />
+    <Compile Include="Interfaces\INotification.cs" />
+    <Compile Include="Interfaces\IQuery.cs" />
+    <Compile Include="Interfaces\IQueryHandler.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetTaskSpecificTaskStateQuery.cs" />
+    <Compile Include="Queries\GetTaskSpecificUserAndTaskStateQuery.cs" />
+    <Compile Include="Queries\GetTaskSpecificUserQuery.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\ITaskRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Services\NetMailService.cs" />
+    <Compile Include="Subscribers\TaskTodoEventSubscriber.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
